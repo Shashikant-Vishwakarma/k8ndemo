@@ -3,7 +3,7 @@ version: "3.9"
 services:
   api:
     build:
-      context: ./app
+      context: ./api
       dockerfile: Dockerfile
     image: k8n_db_sahil:1.0.0
     container_name: k8n-db-api
