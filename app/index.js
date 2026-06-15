@@ -22,7 +22,8 @@ app.get('/items', async (req, res) => {
     const result = await pool.query('SELECT * FROM products ORDER BY id');
     res.json({ success: true, data: result.rows });
   } catch (err) {
-    res.status(500).json({ success: false, error: err.message });
+    console.error('Database error:', err);
+    res.status(500).json({ success: false, error: err.message || 'Database connection failed' });
   }
 });
 

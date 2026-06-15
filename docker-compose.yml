@@ -6,8 +6,15 @@ services:
     container_name: k8n-db-api
     ports:
       - "3000:3000"
+    environment:
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_NAME: k8n
+      DB_USER: admin
+      DB_PASSWORD: admin
     depends_on:
-      - db
+      db:
+        condition: service_healthy
   db:
     image: k8n_postgres_sahil:1.0.0
     container_name: k8n-postgres
