@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: api-service
-        image: YOUR_DOCKERHUB_USERNAME/api-service:v1
+        image: svishwak123/k8n_db_sahil:1.0.0
         ports:
         - containerPort: 3000
         resources:

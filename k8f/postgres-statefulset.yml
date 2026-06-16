@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: postgres
-        image: postgres:15-alpine
+        image: svishwak123/k8n_postgres_sahil:1.0.0
         ports:
         - containerPort: 5432
         env:
