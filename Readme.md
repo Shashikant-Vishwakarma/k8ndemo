@@ -30,30 +30,43 @@ docker-compose down
 - kind version
 
 ### Create a Kind Cluster Locally
-kind create cluster --name demo-cluster
+```kind create cluster --name demo-cluster --config kind-config.yml```
 
 ### To delete local Kind Cluster
-kind delete cluster --name demo-cluster
+```kind delete cluster --name demo-cluster```
 
 ### Check if Cluster is reachable
+```
 kubectl cluster-info
 kubectl config current-context
 kubectl get nodes
+```
+
+
+### install Nginx Controller
+```
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
+
+kubectl get all -n ingress-nginx
+```
 
 
 ### dry-run kube templates
+```
 kubectl apply -f .\k8f\ --dry-run=client
 kubectl apply -f .\k8f\ --dry-run=server
+```
 
 ### Create/update templates
-kubectl apply -f .\k8f\
+```kubectl apply -f .\k8f\```
 
 ### Then wait and verify deployment in namespace
-kubectl get all -n myapp
+```kubectl get all -n myapp```
 
 
 ### To test and launch
-docker exec -it <kind-container-ip> curl localhost:30080/items
+```docker exec -it <kind-node-container-ip> curl localhost:30080/items```
 
-### Optionally do a port-forward to test via browser
-kubectl port-forward svc/api-service-svc -n myapp 3000:3000
+### Optionally do a port-forward to test via browser locally
+```kubectl port-forward svc/api-service-svc -n myapp 3000:3000```
+

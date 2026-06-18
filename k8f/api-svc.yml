@@ -4,10 +4,9 @@ metadata:
   name: api-service-svc
   namespace: myapp
 spec:
-  type: NodePort
+  type: ClusterIP
   selector:
     app: api-service
   ports:
-    - port: 3000        # Service port (cluster internal)
+    - port: 80        # Service port (cluster internal)
       targetPort: 3000  # Container port
-      nodePort: 30080   # External port on each node (optional)
