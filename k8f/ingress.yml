@@ -6,8 +6,9 @@ metadata:
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
+  ingressClassName: nginx
   rules:
-  - host: localhost
+  - host: api.sahil.com
     http:
       paths:
       - path: /

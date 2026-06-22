@@ -45,7 +45,12 @@ kubectl get nodes
 
 ### install Nginx Controller
 ```
+if testing via KIND Cluster locally
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
+
+
+if deploying on cloud like AKS
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.15.1/deploy/static/provider/cloud/deploy.yaml
 
 kubectl get all -n ingress-nginx
 ```
@@ -70,3 +75,6 @@ kubectl apply -f .\k8f\ --dry-run=server
 ### Optionally do a port-forward to test via browser locally
 ```kubectl port-forward svc/api-service-svc -n myapp 3000:3000```
 
+
+
+(Get-Content $env:windir\System32\drivers\etc\hosts -Raw) -replace '20.81.95.55\s+api.local', '20.81.95.55 api.sahil.com' | Set-Content -Path $env:windir\System32\drivers\etc\hosts -Force
